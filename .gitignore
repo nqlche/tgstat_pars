@@ -1,0 +1,6 @@
+venv/
+.idea/
+storage/
+storage2/
+bot/chats.csv
+
