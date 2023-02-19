@@ -7,6 +7,7 @@ from aiogram import F
 from aiogram.types import FSInputFile
 import asyncio
 
+# start bot
 bot = Bot(token=TOKEN_API)
 dp = Dispatcher()
 
