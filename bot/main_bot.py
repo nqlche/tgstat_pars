@@ -28,7 +28,7 @@ async def cmd_start(message: Message):
 async def parser(message: Message):
     await message.answer(text='Работаю...')
     get_data(message.text)
-    file = FSInputFile('../botinki/chats.csv')
+    file = FSInputFile('../bot/chats.csv')
     await bot.send_document(document=file, chat_id=message.chat.id)
 
 
