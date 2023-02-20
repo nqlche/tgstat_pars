@@ -1,4 +1,4 @@
-from bot.telegram_channels import get_data
+from telegram_channels import get_data
 from aiogram import Bot, Dispatcher
 from aiogram.types import (KeyboardButton, Message, ReplyKeyboardMarkup)
 from aiogram.filters import Command, Text
