@@ -2,7 +2,7 @@ from telegram_channels import get_data
 from aiogram import Bot, Dispatcher
 from aiogram.types import (KeyboardButton, Message, ReplyKeyboardMarkup)
 from aiogram.filters import Command, Text
-from bot.config import TOKEN_API
+from config import TOKEN_API
 from aiogram import F
 from aiogram.types import FSInputFile
 import asyncio
