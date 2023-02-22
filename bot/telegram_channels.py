@@ -5,11 +5,11 @@ import csv
 headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36',
 }
-n = 'chats'
+file_name = 'chats'
 
 
 def get_data(url):
-    with open(file=f"{n}.csv", mode='w', encoding='utf-8-sig', newline='') as file:
+    with open(file=f"{file_name}.csv", mode='w', encoding='utf-8-sig', newline='') as file:
         writer = csv.writer(file, delimiter=';')
         writer.writerow(['линк', 'Ссылка', 'Название', 'Участники', 'Сообщение(7 дней)', 'MAU'])
 
@@ -36,7 +36,7 @@ def get_data(url):
         elif '.' not in mau and 'k' in mau:
             mau = int(mau.replace('k', '')) * 1000
 
-        with open(f"{n}.csv", 'a', encoding='utf-8-sig', newline='') as file_a:
+        with open(f"{file_name}.csv", 'a', encoding='utf-8-sig', newline='') as file_a:
             f = link_1_stolb, str(link), title, members, messages_of_last_7_days, mau
             writer = csv.writer(file_a, delimiter=';')
             writer.writerow(f)
