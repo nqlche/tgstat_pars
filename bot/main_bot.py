@@ -11,7 +11,7 @@ import asyncio
 bot = Bot(token=TOKEN_API)
 dp = Dispatcher()
 
-button_1: KeyboardButton = KeyboardButton(text='❤️')
+button_1: KeyboardButton = KeyboardButton(text='/help')
 keyboard: ReplyKeyboardMarkup = ReplyKeyboardMarkup(
     keyboard=[[button_1]],
     resize_keyboard=True,
@@ -28,14 +28,15 @@ async def cmd_start(message: Message):
 async def parser(message: Message):
     await message.answer(text='Работаю...')
     get_data(message.text)
-    file = FSInputFile('/home/nequel/tgstat_pars/bot/chats.csv')
+    file = FSInputFile('../bot/chats.csv')
     await bot.send_document(document=file, chat_id=message.chat.id)
 
 
-@dp.message(Text(text='❤️'))
+@dp.message(Command(commands=['help']))
 async def love(message: Message):
-    await bot.send_photo(chat_id=message.chat.id,
-                         photo='https://sun9-8.userapi.com/c845524/v845524953/742a0/WezZEhFte10.jpg')
+    await message.answer(
+        text='<i>Бот умеет парсить любые категории чатов с сайте tgstat, также поддерживается любая сортировка</i>',
+        parse_mode='html')
 
 
 @dp.message()
@@ -44,7 +45,6 @@ async def foo(message: Message):
 
 
 async def main():
-    get_data(url='https://tgstat.ru/ratings/chats/business?sort=members')
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
 

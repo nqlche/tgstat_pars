@@ -1,2 +1,3 @@
-TOKEN_API = '6053149418:AAGwSc1MRVJZSHwKEggLEaOighEKCqnu6kw'
+# Вставьте свой токен для бота
+TOKEN_API = ''
 
